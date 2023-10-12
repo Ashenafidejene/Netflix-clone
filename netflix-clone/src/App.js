@@ -4,12 +4,13 @@ import Row from './components/Row/Row';
 import requests from './js/requests';
 import Banner from './components/Banner/Banner';
 import Nav from './components/Nav/Nav';
+import Footer from './components/Footer/Footer';
 function App() {
   return (
     <div className="App">
     <Nav/>
-     < Banner/>
-     <Row title="NETFLIX ORIGIN" fetchUrl={requests.fetchNetflixOriginals} isLargeRow/>
+     <Banner/>
+     <Row title="NETFLIX ORIGIN" fetchUrl={requests.fetchNetflixOriginals} isLargeRow />
      <Row title="Trending Now" fetchUrl={requests.fetchTrending} />
     
     <Row title="Top Rated" fetchUrl={requests.fetchTopRatedMovies} />
@@ -21,7 +22,7 @@ function App() {
       title="Documentaries Movies"
       fetchUrl={requests.fetchDocumentaries}
     />
-   
+    <Footer/>
     </div>
   );
 }

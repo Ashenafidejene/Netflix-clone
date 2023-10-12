@@ -3,19 +3,19 @@ import './row.css'
 import axios from '../../js/axios'
 import YouTube from "react-youtube";
 import movieTrailer from "movie-trailer";
-const Row = (props) => {
+const Row = ({title, fetchUrl, isLargeRow}) => {
     const [movies, setMovies] = useState([]);
     const [trailerUrl, setTrailerUrl] = useState("");
     const base_url = "http://image.tmdb.org/t/p/original";
   
     useEffect(() => {
       async function fetchData() {
-        const request = await axios.get(props.fetchUrl);
+        const request = await axios.get(fetchUrl);
         setMovies(request.data.results);
         return request;
       }
       fetchData();
-    }, [props.fetchUrl]);
+    }, [fetchUrl]);
     const opts = {
 		height: "390",
 		width: "100%",
@@ -38,15 +38,15 @@ const Row = (props) => {
   
     return (
       <div className="row">
-        <h1>{props.title}</h1>
+        <h1>{title}</h1>
         <div className="row__posters">
 				{movies.map((movie) => (
 					<img
 						key={movie.id}
 						onClick={() => handleClick(movie)}
-						className={`row__poster ${props.isLargeRow && "row__posterLarge"}`}
+						className={`row__poster ${isLargeRow && "row__posterLarge"}`}
 						src={`${base_url}${
-							props.isLargeRow ? movie.poster_path : movie.backdrop_path
+							isLargeRow ? movie.poster_path : movie.backdrop_path
 						}`}
 						alt={movie.name}
 					/>
