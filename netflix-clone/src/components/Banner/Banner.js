@@ -21,11 +21,16 @@ const Banner = (props) => {
 		return str?.length > n ? str.substr(0, n - 1) + "..." : str;
 	}
   return (
-    <header
+    <div
     className="banner"
-    style={{     
-  backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`, 
-    }}>
+    style={{
+        color: 'white',
+        objectFit: 'contain',
+        height: '448px',
+        backgroundSize: '100% 100%', // Updated property
+        backgroundPosition: 'center center',
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie.backdrop_path}")`,
+      }}>
     <div className="banner__contents">
         <h1 className="banner__title">
             {movie?.title || movie?.name || movie.original_name}
@@ -39,7 +44,7 @@ const Banner = (props) => {
         </h1>
     </div>
     <div className="banner__fadeBottom" />
-</header>
+</div>
   )
 }
 

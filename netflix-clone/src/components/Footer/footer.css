@@ -1,7 +1,9 @@
 .footer ul {
 	padding: 30px;
 }
-
+.footer{
+    background-color: black;
+}
 .footer ul li {
 	list-style: none;
 	opacity: 0.5;

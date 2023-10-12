@@ -1,6 +1,7 @@
 .row{
-    margin-left: 5%;
+    /* margin-left: 5%; */
 	color: white;
+    background-color: black;
 }
 .row__poster {
     width: 100%;
